@@ -1,0 +1,15 @@
+def matsub(a, b):
+    if len(a) != len(b):
+        return -1
+    else:
+        new = []
+        for i in range(len(a)):
+            if len(a[i]) == len(b[i]):
+                newsub = []
+                for j in range(len(b)):
+                    newsub.append(a[i][j] - b[i][j])
+                new.append(newsub)
+            else:
+                return -1
+        return new    
+print(matsub([[2,0],[8,6]], [[1,0],[5,2]]))

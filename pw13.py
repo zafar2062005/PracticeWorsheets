@@ -77,3 +77,36 @@ def rec_distance(grid):
       
 
 
+x = "91566165"
+y = "639485712"
+def entryTime(s,keypad):
+    nested = []
+    for i in range(0,len(keypad),3):
+        nested.append(list(keypad[i:i+3]))
+
+    coo = [] 
+    for i in s:
+        for j in nested:
+            if i in j:
+                coo.append([nested.index(j), j.index(i)])
+    
+    inpt= coo
+
+    x = []
+    for i in range(len(inpt)):
+        if i < len(inpt) - 1:
+            x.append([inpt[i][0]-inpt[i+1][0], inpt[i][1]-inpt[i+1][1]])
+
+    
+    r =[]
+    for i in x:
+        if i in [[1,1],[-1,-1], [1,-1],[-1,1], [0,1] , [1,0] ,[0,-1], [-1,0]]:
+            r.append(1)
+        elif i in [[2,2],[-2,2],[2,-2],[-2,-2],[2,1],[1,2],[-2,1],[2,-1],[-1,2], [1,-2],[2,0],[0,2],[-2,0],[0,-2]]:
+            r.append(2)
+        else:
+            r.append(0)     
+
+    return r        
+
+print(entryTime(x,y))
